@@ -1,0 +1,36 @@
+<html>
+<head>
+    <script>
+    var person=function(fname,lname,email,phnum){
+        this.fname=fname;
+        this.lname=lname;
+        this.email=email;
+        this.phnum=phnum;
+        return function(){
+            
+            var span1 = document.getElementById('fname');
+            span1.innerHTML += this.fname;
+             var span2 = document.getElementById('lname');
+            span2.innerHTML += this.lname;
+             var span3 = document.getElementById('email');
+            span3.innerHTML += this.email;
+             var span4 = document.getElementById('phnum');     //closure defined 
+            span4.innerHTML += this.phnum;
+        }
+    }
+        function myappend(){
+            
+           var app=person("Toshik","verma","toshikverma@yahoo.com","7455022462"); //creatig object
+            app(); // calling closure
+        }
+        
+    </script>
+    </head>
+    <body>
+    <span id="fname">First Name:</span><br>
+        <span id="lname">Last Name:</span><br>
+        <span id="email">Email:</span><br>
+        <span id="phnum">Phone Number:</span><br>
+        <button onclick="myappend()" >Append</button>
+    
+    </body></html>
